@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/home/alex/as/SlidingTabsColors/Application/src/main/res/values/template-dimens.xml -->
+    <!-- From: file:/home/alex/github/android_prj/SlidingTabsColors/Application/src/main/res/values/template-dimens.xml -->
     <eat-comment/>
     <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
     <dimen name="margin_huge">64dp</dimen>
@@ -9,7 +9,7 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_tiny">4dp</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
-    <!-- From: file:/home/alex/as/SlidingTabsColors/Application/src/main/res/values/base-strings.xml -->
+    <!-- From: file:/home/alex/github/android_prj/SlidingTabsColors/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
     <string name="app_name">Sensors</string>
     <string name="intro_message">
@@ -21,17 +21,22 @@
         
         ]]>
     </string>
-    <!-- From: file:/home/alex/as/SlidingTabsColors/Application/src/main/res/values/fragmentview_strings.xml -->
+    <!-- From: file:/home/alex/github/android_prj/SlidingTabsColors/Application/src/main/res/values/fragmentview_strings.xml -->
     <eat-comment/>
     <string name="sample_hide_log">Hide Log</string>
     <string name="sample_show_log">Show Log</string>
-    <!-- From: file:/home/alex/as/SlidingTabsColors/Application/src/main/res/values/strings.xml -->
+    <!-- From: file:/home/alex/github/android_prj/SlidingTabsColors/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="tab_gravity">Gravity</string>
+    <string name="tab_humidity">Humidity</string>
     <string name="tab_messages">Gyroscope</string>
     <string name="tab_notifications">GPS</string>
     <string name="tab_photos">Accelerometer</string>
+    <string name="tab_pressure">Pressure</string>
+    <string name="tab_proximity">Proximity</string>
     <string name="tab_stream">Lightness</string>
-    <!-- From: file:/home/alex/as/SlidingTabsColors/Application/src/main/res/values/template-styles.xml -->
+    <string name="tab_temperature">Temperature</string>
+    <!-- From: file:/home/alex/github/android_prj/SlidingTabsColors/Application/src/main/res/values/template-styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.Sample"/>
     <style name="Theme.Base" parent="android:Theme.Light"/>

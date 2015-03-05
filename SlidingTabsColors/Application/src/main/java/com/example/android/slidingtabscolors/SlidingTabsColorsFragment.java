@@ -125,13 +125,31 @@ public class SlidingTabsColorsFragment extends Fragment {
         ));
 
         mTabs.add(new SamplePagerItem(
-                getString(R.string.tab_photos), // Title
+                getString(R.string.tab_temperature), // Title
+                Color.MAGENTA, // Indicator color
+                Color.GRAY // Divider color
+        ));
+
+        mTabs.add(new SamplePagerItem(
+                getString(R.string.tab_gravity), // Title
+                Color.BLUE, // Indicator color
+                Color.GRAY // Divider color
+        ));
+
+        mTabs.add(new SamplePagerItem(
+                getString(R.string.tab_humidity), // Title
+                Color.MAGENTA, // Indicator color
+                Color.GRAY // Divider color
+        ));
+
+        mTabs.add(new SamplePagerItem(
+                getString(R.string.tab_pressure), // Title
                 Color.YELLOW, // Indicator color
                 Color.GRAY // Divider color
         ));
 
         mTabs.add(new SamplePagerItem(
-                getString(R.string.tab_notifications), // Title
+                getString(R.string.tab_proximity), // Title
                 Color.GREEN, // Indicator color
                 Color.GRAY // Divider color
         ));

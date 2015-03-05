@@ -52,33 +52,42 @@ public class ContentFragment extends Fragment implements SensorEventListener{
         @Override
         public void onSensorChanged(SensorEvent event) {
 
-            getAccelerometer(event);
+            if(event.sensor.getType() == Sensor.TYPE_LIGHT) {
+                getSensorOneValue(event, "Lightness");
+            }
+            else if(event.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE) {
+                getSensorOneValue(event, "Temperature");
+            }
+            else if(event.sensor.getType() == Sensor.TYPE_GRAVITY) {
+                getSensorOneValue(event, "Gravity");
+            }
+            else if(event.sensor.getType() == Sensor.TYPE_RELATIVE_HUMIDITY) {
+                getSensorOneValue(event, "Humidity");
+            }
+            else if(event.sensor.getType() == Sensor.TYPE_PRESSURE) {
+                getSensorOneValue(event, "Pressure");
+            }
+            else if(event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+                getSensorOneValue(event, "Proximity");
+            }
         }
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
-        public float getLightness () { return lux; }
 
-    private void getAccelerometer(SensorEvent event) {
-    float[] values = event.values;
+    private void getSensorOneValue(SensorEvent event, String title) {
+        float[] values = event.values;
+        float x = values[0];
 
-    // Movement
-    float x = values[0];
+        long actualTime = event.timestamp;
 
-    long actualTime = event.timestamp;
-
-      if (actualTime - lastUpdate < 200) {
-        return;
-      }
-      lastUpdate = actualTime;
-
-       //Toast.makeText(title1.getContext(), "Lightness changes to" + String.valueOf(x), Toast.LENGTH_SHORT).show();
-       title1.setText("Lightness: " + String.valueOf(x));
-
-
+        if (actualTime - lastUpdate < 200) {
+            return;
+        }
+        lastUpdate = actualTime;
+        title1.setText(title +": " + String.valueOf(x));
     }
-
     /**
      * @return a new instance of {@link ContentFragment}, adding the parameters into a bundle and
      * setting them as arguments.
@@ -108,29 +117,70 @@ public class ContentFragment extends Fragment implements SensorEventListener{
         super.onViewCreated(view, savedInstanceState);
 
         Bundle args = getArguments();
+        TextView title = (TextView) view.findViewById(R.id.item_title);
+        TextView uom = (TextView) view.findViewById(R.id.item_indicator_color);
+        title1 = title;
+        Context context = title.getContext();
+        SensorManager mgr = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
 
         if (args != null) {
 
             if(args.getCharSequence(KEY_TITLE).equals("Lightness")) {
-                TextView title = (TextView) view.findViewById(R.id.item_title);
-                title1 = title;
-                title.setText("Ligtness: " + args.getCharSequence(KEY_TITLE));
 
-                title.setGravity(Gravity.TOP);
-
-                Context context = title.getContext();
-
-                SensorManager mgr = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
                 Sensor light_s = mgr.getDefaultSensor(Sensor.TYPE_LIGHT);
                 List<Sensor> list = mgr.getSensorList(Sensor.TYPE_LIGHT);
 
                 mgr.registerListener(this, light_s, SensorManager.SENSOR_DELAY_UI);
-                //listener.
+                uom.setText("Unit of Measurement: " + "Lux");
 
+            }
+            else if(args.getCharSequence(KEY_TITLE).equals("Temperature")) {
+
+                Sensor temp_s = mgr.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+                List<Sensor> list = mgr.getSensorList(Sensor.TYPE_AMBIENT_TEMPERATURE);
+
+                mgr.registerListener(this, temp_s, SensorManager.SENSOR_DELAY_UI);
+                uom.setText("Unit of Measurement: " + "Degree Celcius");
+
+            }
+            else if(args.getCharSequence(KEY_TITLE).equals("Gravity")) {
+
+                Sensor grvt_s = mgr.getDefaultSensor(Sensor.TYPE_GRAVITY);
+                List<Sensor> list = mgr.getSensorList(Sensor.TYPE_GRAVITY);
+
+                mgr.registerListener(this, grvt_s, SensorManager.SENSOR_DELAY_UI);
+                uom.setText("Unit of Measurement: " + "m*s^2");
+
+            }
+            else if(args.getCharSequence(KEY_TITLE).equals("Humidity")) {
+
+                Sensor hmdt_s = mgr.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
+                List<Sensor> list = mgr.getSensorList(Sensor.TYPE_RELATIVE_HUMIDITY);
+
+                mgr.registerListener(this, hmdt_s, SensorManager.SENSOR_DELAY_UI);
+                uom.setText("Unit of Measurement: " + "%");
+
+            }
+            else if(args.getCharSequence(KEY_TITLE).equals("Proximity")) {
+
+                Sensor hmdt_s = mgr.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+                List<Sensor> list = mgr.getSensorList(Sensor.TYPE_PROXIMITY);
+
+                mgr.registerListener(this, hmdt_s, SensorManager.SENSOR_DELAY_UI);
+                uom.setText("Unit of Measurement: " + "cm");
+
+            }
+            else if(args.getCharSequence(KEY_TITLE).equals("Pressure")) {
+
+                Sensor hmdt_s = mgr.getDefaultSensor(Sensor.TYPE_PRESSURE);
+                List<Sensor> list = mgr.getSensorList(Sensor.TYPE_PRESSURE);
+
+                mgr.registerListener(this, hmdt_s, SensorManager.SENSOR_DELAY_UI);
+                uom.setText("Unit of Measurement: " + "mBar");
 
             }
             else{
-                TextView title = (TextView) view.findViewById(R.id.item_title);
+
                 title.setText("Title: " + args.getCharSequence(KEY_TITLE));
 
             }

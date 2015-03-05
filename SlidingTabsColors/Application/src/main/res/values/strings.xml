@@ -2,6 +2,11 @@
 <resources>
 
     <string name="tab_stream">Lightness</string>
+    <string name="tab_temperature">Temperature</string>
+    <string name="tab_gravity">Gravity</string>
+    <string name="tab_humidity">Humidity</string>
+    <string name="tab_pressure">Pressure</string>
+    <string name="tab_proximity">Proximity</string>
     <string name="tab_messages">Gyroscope</string>
     <string name="tab_notifications">GPS</string>
     <string name="tab_photos">Accelerometer</string>
