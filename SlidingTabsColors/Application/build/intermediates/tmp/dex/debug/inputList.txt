@@ -1,0 +1,4 @@
+/home/alex/as/SlidingTabsColors/Application/build/intermediates/classes/debug
+/home/alex/as/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-aa99f6b3aaeeaaee9c0f3e5fa1371aae9f4082e7.jar
+/home/alex/as/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-fb8823a9445571d91c958058b285eaf5b6e25d59.jar
+/home/alex/as/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/classes-65c7047eca726c63bf24bf8db62232b2dad3ae93.jar
