@@ -46,6 +46,9 @@ public class ContentFragment extends Fragment implements SensorEventListener{
     private long lastUpdate;
 
     public TextView title1;
+    public TextView title2;
+    public TextView title3;
+
 
    //TextView title1 = (TextView) view.findViewById(R.id.item_title);
 
@@ -59,7 +62,7 @@ public class ContentFragment extends Fragment implements SensorEventListener{
                 getSensorOneValue(event, "Temperature");
             }
             else if(event.sensor.getType() == Sensor.TYPE_GRAVITY) {
-                getSensorOneValue(event, "Gravity");
+                getSensorThreeValues(event, "Gravity");
             }
             else if(event.sensor.getType() == Sensor.TYPE_RELATIVE_HUMIDITY) {
                 getSensorOneValue(event, "Humidity");
@@ -87,6 +90,21 @@ public class ContentFragment extends Fragment implements SensorEventListener{
         }
         lastUpdate = actualTime;
         title1.setText(title +": " + String.valueOf(x));
+    }
+
+    private void getSensorThreeValues(SensorEvent event, String title) {
+        float[] values = event.values;
+        float x = values[0];
+        float y = values[1];
+        float z = values[2];
+
+        long actualTime = event.timestamp;
+
+        if (actualTime - lastUpdate < 200) {
+            return;
+        }
+        lastUpdate = actualTime;
+        title1.setText(title +": " + String.valueOf(Math.sqrt(x*x + y*y + z*z)));
     }
     /**
      * @return a new instance of {@link ContentFragment}, adding the parameters into a bundle and
@@ -185,10 +203,10 @@ public class ContentFragment extends Fragment implements SensorEventListener{
 
             }
 
-            int indicatorColor = args.getInt(KEY_INDICATOR_COLOR);
-            TextView indicatorColorView = (TextView) view.findViewById(R.id.item_indicator_color);
-            indicatorColorView.setText("Indicator: #" + Integer.toHexString(indicatorColor));
-            indicatorColorView.setTextColor(indicatorColor);
+            //int indicatorColor = args.getInt(KEY_INDICATOR_COLOR);
+            //TextView indicatorColorView = (TextView) view.findViewById(R.id.item_indicator_color);
+            //indicatorColorView.setText("Indicator: #" + Integer.toHexString(indicatorColor));
+            //indicatorColorView.setTextColor(indicatorColor);
 
             int dividerColor = args.getInt(KEY_DIVIDER_COLOR);
             TextView dividerColorView = (TextView) view.findViewById(R.id.item_divider_color);

@@ -1,4 +1,0 @@
-/home/alex/github/android_prj/SlidingTabsColors/Application/build/intermediates/classes/debug
-/home/alex/github/android_prj/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-aa99f6b3aaeeaaee9c0f3e5fa1371aae9f4082e7.jar
-/home/alex/github/android_prj/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-ffb868d924c9e10cfda195c9cd57d99ab6680eef.jar
-/home/alex/github/android_prj/SlidingTabsColors/Application/build/intermediates/pre-dexed/debug/classes-1336fa9d194b993c9365efec72c82234dfee7a54.jar
